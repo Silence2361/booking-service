@@ -26,6 +26,7 @@ export interface AuthData {
   providedIn: 'root',
 })
 export class AuthService {
+  // baseURL = 'http://localhost:3000'; // для локальной разработки
   baseURL = 'https://booking-backend-vfzr.onrender.com';
   isAuth$: Observable<boolean>;
 
