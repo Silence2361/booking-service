@@ -5,8 +5,13 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  const allowedOrigins =
+    process.env.NODE_ENV === 'production'
+      ? ['https://booking-service-459h.onrender.com']
+      : ['http://localhost:4200'];
+
   app.enableCors({
-    origin: 'http://localhost',
+    origin: allowedOrigins,
     credentials: true,
   });
 
@@ -17,7 +22,6 @@ async function bootstrap() {
       transform: true,
     }),
   );
-
 
   await app.listen(process.env.PORT ?? 3000);
 }
