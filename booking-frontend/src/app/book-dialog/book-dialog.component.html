@@ -1,0 +1,50 @@
+<div class="book-dialog" [formGroup]="bookForm">
+  <div class="book-dialog-title">
+    <div class="book-dialog-name">Комната №{{ data.data.roomNumber }}</div>
+    <div class="book-dialog-info">
+      <div class="book-dialog-text">Вместимость: {{ data.data.capacity }}</div>
+      <div class="book-dialog-text">
+        Расположение: {{ data.data.location }}
+      </div>
+    </div>
+  </div>
+  <div class="book-dialog-params">
+    <div>
+      <mat-form-field>
+        <mat-label>Дата</mat-label>
+        <mat-select formControlName="date">
+          @for (date of dates; track date) {
+          <mat-option [value]="date.date">{{ date.date }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="book-dialog-time">
+      <mat-form-field>
+        <mat-label>От</mat-label>
+        <mat-select formControlName="timeStart">
+          @for (time of timeStart; track time) {
+          <mat-option [value]="time.time">{{ time.time }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>До</mat-label>
+        <mat-select formControlName="timeEnd">
+          @for (time of timeEnd; track time) {
+          <mat-option [value]="time.time">{{ time.time }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-dialog-actions>
+    <button
+      mat-raised-button
+      [disabled]="bookForm.invalid"
+      (click)="bookRoom()"
+    >
+      Подтвердить бронирование
+    </button>
+  </mat-dialog-actions>
+</div>

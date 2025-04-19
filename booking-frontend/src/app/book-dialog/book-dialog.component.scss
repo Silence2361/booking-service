@@ -1,0 +1,48 @@
+.book-dialog {
+  padding: 30px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+
+  &-name {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: black;
+    text-align: center;
+  }
+
+  &-text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #575757;
+  }
+
+  &-time {
+    display: flex;
+    gap: 16px;
+  }
+
+  &-book-dialog-params {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &-title {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

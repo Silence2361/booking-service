@@ -1,0 +1,67 @@
+<div class="root">
+  <div class="container">
+    <div class="room">
+      @if (isAuth) {
+      <div class="room-header">
+        <div class="room-title">Переговорные комнаты</div>
+        <div class="room-hint">Выберите комнату для бронирования:</div>
+      </div>
+
+      @for (room of savedBookingRooms; track room.id) {
+      <!-- <span>{{ room.id }}</span> -->
+
+      <div class="room-container">
+        <div class="room-state">
+          <div
+            [class.room-indicator-true]="room.is_active"
+            [class.room-indicator-false]="!room.is_active"
+          ></div>
+          <span class="room-name">Комната №{{ room.roomNumber }}</span>
+        </div>
+        <div class="room-info">
+          <div class="room-text">Вместимость: {{ room.capacity }}</div>
+          <div class="room-text">Расположение: {{ room.location }}</div>
+        </div>
+        <!-- <button class="">Забронировать</button> -->
+        <div class="room-booking" (click)="bookRoom(room)">Забронировать</div>
+      </div>
+      }
+
+      <div class="room-title">
+        {{
+          savedUserBookingRooms.length > 0
+            ? "Мои бронирования:"
+            : "Забронированные комнаты отсутствуют"
+        }}
+      </div>
+      @if (savedUserBookingRooms.length > 0) { @for (room of
+      savedUserBookingRooms; track room.id) {
+      <!-- <span>{{ room.id }}</span> -->
+
+      <div class="room-container">
+        <!-- <div class="room-state">
+              <div [class.room-indicator-true]="room.is_active" [class.room-indicator-false]="!room.is_active"></div>
+              <span class="room-name">Комната №{{ room.id }}</span>
+            </div> -->
+        <div class="room-info">
+          <div class="room-text">Пользователь: {{ room.userId }}</div>
+          <div class="room-text">ID комнаты: {{ room.roomId }}</div>
+          <!-- <div class="room-text">Дата: {{ room.date }}</div> -->
+          <div class="room-text">
+            Дата: {{ getDateFromDateTimeString(room.startTime) }}
+          </div>
+          <div class="room-text">
+            Время: {{ getTimeFromDateTimeString(room.startTime) }} -
+            {{ getTimeFromDateTimeString(room.endTime) }}
+          </div>
+          <!-- <div class="room-text">Расположение: {{ room.location }}</div> -->
+          <!-- <div class="room-text">Вместимость: {{ room.capacity }}</div> -->
+        </div>
+        <div class="room-btn room-btn-delete" (click)="cancelBook(room)">
+          Отменить
+        </div>
+      </div>
+      } } }
+    </div>
+  </div>
+</div>

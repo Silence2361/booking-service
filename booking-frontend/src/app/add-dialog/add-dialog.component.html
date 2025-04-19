@@ -1,0 +1,47 @@
+<div class="book-dialog" [formGroup]="addForm">
+  <div class="book-dialog-title">
+    <div class="book-dialog-name">
+      {{
+        data.type === editType.Add
+          ? "Создание комнаты"
+          : "Редактирование комнаты"
+      }}
+    </div>
+  </div>
+  <div class="book-dialog-params">
+    <mat-form-field>
+      <mat-label>Расположение</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="location"
+        placeholder="Расположение"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Вместимость</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="capacity"
+        placeholder="Вместимость"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Номер комнаты</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="roomNumber"
+        placeholder="Номер комнаты"
+      />
+    </mat-form-field>
+  </div>
+  <mat-dialog-actions>
+    <button [disabled]="addForm.invalid" mat-raised-button (click)="data.type === editType.Add ? addRoom() : editRoom()">
+      {{
+        data.type === editType.Add ? "Создать комнату" : "Применить изменения"
+      }}
+    </button>
+  </mat-dialog-actions>
+</div>

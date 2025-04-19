@@ -1,0 +1,75 @@
+<div class="container" [formGroup]="authForm">
+  <mat-card appearance="outlined">
+    <mat-card-content>
+      <mat-tab-group>
+        <mat-tab label="Регистрация">
+          <div class="flex-container">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Имя пользователя</mat-label>
+              <input
+                type="text"
+                matInput
+                formControlName="name"
+                placeholder="Ivan"
+              />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Почта</mat-label>
+              <input
+                type="email"
+                matInput
+                formControlName="email"
+                placeholder="Ex. pat@example.com"
+              />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Пароль</mat-label>
+              <input
+                type="password"
+                matInput
+                formControlName="password"
+                placeholder="pass1234"
+              />
+            </mat-form-field>
+            <button
+              mat-raised-button
+              [disabled]="authForm.invalid"
+              (click)="register()"
+            >
+              Регистрация
+            </button>
+          </div>
+        </mat-tab>
+        <mat-tab label="Вход">
+          <div class="flex-container">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Почта</mat-label>
+              <input
+                type="email"
+                matInput
+                formControlName="email"
+                placeholder="Ex. pat@example.com"
+              />
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Пароль</mat-label>
+              <input
+                type="password"
+                matInput
+                formControlName="password"
+                placeholder="pass1234"
+              />
+            </mat-form-field>
+            <button
+              mat-raised-button
+              [disabled]="authForm.invalid"
+              (click)="login()"
+            >
+              Вход
+            </button>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</div>
