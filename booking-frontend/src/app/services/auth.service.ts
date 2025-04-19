@@ -26,7 +26,7 @@ export interface AuthData {
   providedIn: 'root',
 })
 export class AuthService {
-  baseURL = 'http://localhost:3000';
+  baseURL = 'https://booking-backend.onrender.com';
   isAuth$: Observable<boolean>;
 
   constructor(private http: HttpClient) { }

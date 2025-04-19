@@ -39,7 +39,7 @@ export interface BookingRoomFront extends BookingRoom {
   providedIn: 'root',
 })
 export class BookingService {
-  baseURL = 'http://localhost:3000';
+  baseURL = 'https://booking-backend.onrender.com';
 
   constructor(private http: HttpClient) { }
 
