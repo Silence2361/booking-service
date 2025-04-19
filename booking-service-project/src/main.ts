@@ -7,7 +7,7 @@ async function bootstrap() {
 
   app.enableCors({
     // origin: 'http://localhost' // для локальной разарботки,
-    origin: 'https://booking-backend-vfzr.onrender.com',
+    origin: 'https://booking-service-459h.onrender.com',
     credentials: true,
   });
 
